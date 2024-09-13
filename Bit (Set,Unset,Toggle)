@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define all(x) (x).begin(), (x).end()
+using ll = signed long long int;
+
+void printBinary(int num){
+    for (int i = 10; i >= 0; i--)
+    {
+        cout<< ((num>>i)& 1);
+    }
+    cout<<endl;
+}
+
+int main(){
+    int a=5;
+    printBinary(a);
+
+    //Checking setbit
+    // 101                      111
+    // 010    1<<index          010
+    // &__                      &__
+    // 000==0 unset bit         010==!0 set bit
+    int index = 1;
+    if(a & 1<<index) cout<<"Set Bit"<<endl;
+    else cout<<"Unset Bit"<<endl;
+
+    //Setting up a bit
+    // Or operation with a set bit number
+    int b = 4;
+    index = 0;
+    b = b | 1<<index;
+    printBinary(b);
+
+    //Unsetting up a bit
+    // And operation with a inverted (~) set bit number
+    b = 5;
+    index = 0;
+    b = b & ~(1<<index);
+    printBinary(b);
+
+    //toggle a bit
+    int c = 7;
+    index = 0;
+    c = c ^ 1<<index;
+    printBinary(c);
+
+    return 0;
+}
